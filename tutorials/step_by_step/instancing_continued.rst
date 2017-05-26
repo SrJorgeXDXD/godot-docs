@@ -10,7 +10,7 @@ Instanciar tiene muchos usos. A simple vista, al instanciar tienes:
 
 -  La habilidad de subdividir las escenas y hacerlas mas fáciles de
    administrar.
--  Una alternativa flexible a los prefabricados (y mucho mas poderoso
+-  Una alternativa flexible a los prefabricados (y mucho mas poderosa
    dado que las instancias trabajan en varios niveles)
 -  Una forma de diseñar flujos de juegos mas complejos o incluso UIs
    (interfaces de usuario) (Los elementos de UIs son nodos en Godot
@@ -19,8 +19,8 @@ Instanciar tiene muchos usos. A simple vista, al instanciar tienes:
 Lenguaje de diseño
 ---------------
 
-Pero el verdadero punto fuerte de instanciar escenas es que como un
-excelente lenguaje de diseño. Esto es básicamente lo que hace
+Pero el verdadero punto fuerte de instanciar escenas es que trabaja 
+como un excelente lenguaje de diseño. Esto es básicamente lo que hace
 especial a Godot y diferente a cualquier otro motor en existencia.
 Todo el motor fue diseñado desde cero en torno a este concepto.
 
@@ -44,14 +44,14 @@ Una vez que este diagrama existe, hacer el juego se trata de crear
 una escena para cada uno de esos nodos, y usar instancias (ya sea por
 código o desde el editor) para representar la pertenencia.
 
-La mayoría del tiempo programando juegos (o software en general) es
-usada diseñando una arquitectura y adecuando los componentes del
-juego a dicha arquitectura. Diseñar basado en escenas reemplaza eso
+La mayoría del tiempo programando juegos (o software en general) se
+usa para diseñar una arquitectura y adecuando los componentes del
+juego a dicha arquitectura. Diseñar basado en escenas reemplaza esto
 y vuelve el desarrollo mucho mas rápido y directo, permitiendo
 concentrarse en el juego. El diseño basado en Escenas/Instancias es
 extremadamente eficiente para ahorrar una gran parte de ese trabajo,
 ya que la mayoría de los componentes diseñados se mapean directamente
-a una escena. De esta forma, se precisa poco y nada de código de
+a una escena. De esta forma, se precisa poco o nada de código de
 arquitectura.
 
 El siguiente es un ejemplo mas complejo, un juego de mundo abierto
@@ -63,7 +63,7 @@ Crea algunas habitaciones con muebles, luego conectalos. Crea una
 casa mas tarde, y usa esas habitaciones como su interior.
 
 La casa puede ser parte de la ciudadela, que tiene muchas casas.
-Finalmente la ciudadela puede ser colocada en el terreno del mapa
+Finalmente la ciudadela puede ser puesta en el terreno del mapa
 del mundo. También agrega guardias y otros NPCs(personajes no jugador)
 a la ciudadela, creando previamente sus escenas.
 
@@ -74,7 +74,7 @@ no son programadores, por lo que un equipo usual de desarrollo
 consiste de artistas 2D o 3D, diseñadores de niveles, diseñadores de
 juegos, animadores, etc todos trabajando en la interfaz del editor.
 
-Sobrecarga de información!
+¡Sobrecarga de información!
 --------------------------
 
 No te preocupes demasiado, la parte importante de este tutorial es
@@ -82,5 +82,5 @@ crear la conciencia de como las escenas e instanciar son usados en
 la vida real. La mejor forma de entender todo esto es hacer algunos
 juegos.
 
-Todo se volverá muy obvio cuando se pone en practica, entonces, por
+Todo se volverá muy obvio cuando se pone en practica, entonces, ¡por
 favor no te rasques la cabeza y ve al siguiente tutorial!
