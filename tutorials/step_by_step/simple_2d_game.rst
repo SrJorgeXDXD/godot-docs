@@ -6,8 +6,8 @@ Juego 2D Simple
 Pong
 ~~~~
 
-En este sencillo tutorial, un juego básico de Pong será creado. Hay un
-montón de ejemplos mas complejos que de pueden descargar desde el sitio
+En este sencillo tutorial, se creará juego básico de Pong. Hay un
+montón de ejemplos más complejos que se pueden descargar desde el sitio
 oficial de Godot, pero esto debería servir como introducción a la
 funcionalidad básica para juegos 2D.
 
@@ -21,7 +21,7 @@ Configuración de la escena
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Para recordar viejos tiempos, el juego tendrá una resolución de
-640x400 pixels. Esto puede ser configurado en Configuración de
+640x400 pixels. Esto se puede configurar en Configuración de
 Proyecto (ve :ref:`doc_scenes_and_nodes-configuring_the_project`).
 El color de fondo debe ajustarse a negro.
 
@@ -31,7 +31,7 @@ Crea un nodo :ref:`class_Node2D`como raíz del proyecto. Node2D es el
 tipo base para el motor 2D. Luego de esto, agrega algunos sprites
 (:ref:`class_Sprite`node) y ajusta cada uno a su textura
 correspondiente. El diseño de la escena final debe verse similar a
-esto (nota: la pelota esta en el medio!):
+esto (nota: ¡la pelota está en el medio!):
 
 .. image:: /img/pong_layout.png
 
@@ -49,16 +49,16 @@ Configuración de acciones de entrada
 
 Hay tantos métodos de entrada para videojuegos... Teclado, Pad,
 Mouse, Pantalla táctil (Multitouch). Pero esto es pong. El único
-control que importa es que los pads vayan arriba y abajo.
+control que importa es que los pads suban y bajen.
 
 Manejar todos los posibles métodos de entrada puede ser muy
 frustrante y tomar un montón de código. El hecho de que la mayoría
 de los juegos permiten personalizar los controles hacen que este
-problema empeore. Para esto, Godot creo las "Acciones de Entrada".
+problema empeore. Para esto, Godot creó las "Acciones de Entrada".
 Una acción se define, luego se agregan métodos de entrada que
 disparan esa acción.
 
-Abre el dialogo de propiedades de proyecto nuevamente, pero esta
+Abre el diálogo de propiedades de proyecto nuevamente, pero esta
 vez ve a la pestaña "Mapa de entradas".
 
 Allí, agrega 4 acciones:
@@ -82,8 +82,8 @@ en :ref:`doc_scripting-adding_a_script`). El script heredara Node2D:
     func _ready():
         pass
 
-En el constructor, se harán 2 cosas. Primero es habilitar el
-procesamiento, y la segunda guardar algunos valores útiles. Esos
+En el constructor, se harán 2 cosas. Primero, habilitar el
+procesamiento y, segundo, guardar algunos valores útiles. Esos
 valores son las dimensiones de la pantalla y el pad:
 
 ::
@@ -98,8 +98,8 @@ valores son las dimensiones de la pantalla y el pad:
         pad_tamano = get_node("izquierda").get_texture().get_size()
         set_process(true)
 
-Luego, algunas variables usadas para el procesamiento dentro del
-juego serán agregadas:
+Luego, se agregarán algunas variables usadas para el procesamiento 
+dentro del juego:
 
 ::
 
@@ -132,7 +132,7 @@ agregado.
         var rect_izq = Rect2( get_node("izquierda").get_pos() - pad_tamano/2,pad_tamano)
         var rect_der = Rect2 ( get_node("derecha").get_pos() - pad_tamano/2,pad_tamano)
 
-Debido a que la posición de la bola ha sido obtenida, integrarla debería
+Debido a que se ha obtenido la posición de la bola, integrarla debería
 ser simple:
 
 ::
@@ -147,7 +147,7 @@ contra todo. Primero, el piso y el techo:
         if ( (bola_posicion.y < 0 and direccion.y < 0) or (bola_posicion.y > pantalla_tamano.y and direccion.y > 0)):
             direccion.y = -direccion.y
 
-Si se toco uno de los pads, cambiar la dirección e incrementar la velocidad
+Si se tocó uno de los pads, se cambia la dirección y se incrementa la velocidad
 un poco
 
 
@@ -175,8 +175,8 @@ nueva posición:
 
         get_node("bola").set_pos(bola_posicion)
 
-Solo actualizar los pads de acuerdo a la entrada del jugador. La clase
-Input es realmente útil aquí:
+Solo se actualizan los pads de acuerdo a la entrada del jugador. La clase
+Input es muy útil aquí:
 
 ::
 
@@ -200,4 +200,4 @@ Input es realmente útil aquí:
 
         get_node("derecha").set_pos(der_posicion)
 
-Y eso es todo! Un simple Pong fue escrito con unas pocas líneas de código.
+¡Y eso es todo! Se escribió un simple Pong con unas pocas líneas de código.
