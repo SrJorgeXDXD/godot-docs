@@ -15,7 +15,7 @@ Sin embargo, es aun un caso muy común tener un script procesando en
 cada frame. Hay dos tipos de procesamiento, procesamiento idle(inactivo)
 y procesamiento fixed(fijo).
 
-El procesamiento Idle es activado con la funcion :ref:`Node.set_process() <class_Node_set_process>`
+El procesamiento Idle es activado con la función :ref:`Node.set_process() <class_Node_set_process>`
 Una vez activado, el callback :ref:`Node._process() <class_Node__process>`
 podrá ser llamado en cada frame(cuadro). Ejemplo:
 
@@ -27,8 +27,8 @@ podrá ser llamado en cada frame(cuadro). Ejemplo:
     func _process(delta):
         # hacer algo...
 
-El parámetro delta describe el tiempo que paso (en segundos, como
-numero de punto flotante) desde la llamada previa a la funcion
+El parámetro delta describe el tiempo que pasó (en segundos, como
+numero de punto flotante) desde la llamada previa a la función
 _process(). El procesamiento fijo es similar, pero solo se necesita
 para sincronización con el motor de física.
 
@@ -48,7 +48,7 @@ Label, con el siguiente script:
         accum += delta
         set_text(str(accum))
 
-Lo que mostrara un contador aumentando cada segundo.
+Lo que mostrará un contador aumentando cada segundo.
 
 Grupos
 ------
@@ -87,16 +87,16 @@ llamando a :ref:`SceneTree.get_nodes_in_group() <class_SceneTree_get_nodes_in_gr
 
     var guardias = get_tree().get_nodes_in_group("guardias")
 
-Luego agregaremos mas sobre :ref:`SceneTree <class_SceneTree>`
+Luego agregaremos más sobre :ref:`SceneTree <class_SceneTree>`
 
 Notificaciones
 -------------
 
 Godot utiliza un sistema de notificaciones. Usualmente no son
-necesarias desde scripts, debido a que es demasiado bajo nivel y
+necesarias desde scripts, debido a que es muy bajo nivel y
 las funciones virtuales están disponibles para la mayoría de ellas.
 Es solo que es bueno saber que existen. Simplemente agrega una
-funcion :ref:`Object._notification() <class_Object__notification>`
+función :ref:`Object._notification() <class_Object__notification>`
 en tu script:
 
 ::
@@ -183,25 +183,25 @@ ser usado:
                  # lo libera
 
 Cuando un nodo es liberado, también son liberados todos los nodos hijos.
-Por este motivo, borrar nodos manualmente es mucho mas simple de lo que
+Por este motivo, borrar nodos manualmente es mucho más simple de lo que
 parece. Solo libera el nodo base y todo lo demás en el sub árbol se
-ira con el.
+irá con el.
 
 Sin embargo, puede suceder muy seguido que queramos borrar un nodo que
-esta actualmente "blocked"(bloqueado), esto significa, el nodo esta
-emitiendo una señal o llamado a función. Esto resultara en que el juego
+esta actualmente "blocked"(bloqueado). Esto significa que el nodo está
+emitiendo una señal o llamado una función y resultará en que el juego
 se cuelgue. Correr Godot en el debugger (depurador) a menudo va a
-capturar este caso y advertirte sobre el.
+capturar este caso y advertirte sobre él.
 
-La forma mas segura de borrar un nodo es usando
+La forma más segura de borrar un nodo es usando
 :ref:`Node.queue_free() <class_Node_queue_free>`
-en su lugar. Esto borrara el nodo mientras esta inactivo, de forma
+en su lugar. Esto borrará el nodo mientras esta inactivo, de forma
 segura.
 
 ::
 
     func _someaction():
-        s.queue_free() # remueve el nodo y lo borra mientras nada esta
+        s.queue_free() # remueve el nodo y lo borra mientras nada está
         sucediendo.
 
 Instanciando escenas
@@ -212,7 +212,7 @@ pasos. El primero es cargar la escena desde el disco.
 
 ::
 
-    var scene = load("res://myscene.scn") # cargara cuando el script es
+    var scene = load("res://myscene.scn") # cargará cuando el script es
     instanciado
 
 Precargar es mas conveniente a veces, ya que sucede en tiempo de
@@ -223,11 +223,11 @@ parse (análisis gramatical).
     var scene = preload("res://myscene.scn") # será cargado cuando el
                                              # script es "parseado"
 
-Pero 'escena' todavía no es un nodo que contiene sub nodos. Esta
+Pero 'escena' todavía no es un nodo que contiene sub nodos. Está
 empaquetado en un recurso especial llamado :ref:`PackedScene <class_PackedScene>`.
 Para crear el nodo en si, la función
 :ref:`PackedScene.instance() <class_PackedScene_instance>`
-debe ser llamada. Esta regresara el árbol de nodos que puede ser
+debe ser llamada. Esta regresará el árbol de nodos que puede ser
 agregado a la escena activa:
 
 ::
@@ -236,7 +236,7 @@ agregado a la escena activa:
     add_child(node)
 
 La ventaja de este proceso en dos pasos es que una escena empaquetada
-puede mantenerse cargada y listo para usar, por lo que puede ser usada
+puede mantenerse cargada y lista para usar, por lo que puede ser usada
 para crear tantas instancias como se quiera. Esto es especialmente
 útil, por ejemplo, para instanciar varios enemigos, armas, etc. de
 forma rápida en la escena activa.
