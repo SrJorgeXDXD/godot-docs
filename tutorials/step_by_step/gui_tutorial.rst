@@ -1,35 +1,34 @@
 .. _doc_gui_tutorial:
 
-Tutorial GUI (Interfaz Grafica de Usuario)
+Tutorial GUI (Interfaz Gráfica de Usuario)
 ============
 
-Introduccion
+Introducción
 ~~~~~~~~~~~~
 
-Si hay algo que la mayoria de los programadores realmente odian, es
-programar interfaces graficas de usuario (GUIs). Es aburrido, tedioso
+Si hay algo que la mayoría de los programadores realmente odian, es
+programar interfaces gráficas de usuario (GUIs). Es aburrido, tedioso
 y no ofrece retos. Varios aspectos hacen este problema peor como:
 
--  La alineacion de los elementos de la UI (interfaz de usuario) es
-   dificil (para que se vea justo como el diseñador queria).
--  Las UIs son cambiadas constantemente debido a los problemas de
+-  La alineación de los elementos de la UI (interfaz de usuario) es
+   difícil (para que se vea justo como el diseñador quiere).
+-  Las UIs deben cambiarse constantemente debido a los problemas de
    apariencia y usabilidad que aparecen durante el testing(prueba).
 -  Manejar apropiadamente el cambio de tamaño de pantalla para
    diferentes resoluciones de pantallas.
--  Animar varios componentes de pantalla, para hacerlo parecer menos
-   estatico.
+-  Animar varios componentes de pantalla para hacerlo parecer menos
+   estático.
 
-La programacion GUI es ona de las principales causas de frustracion
+La programación GUI es una de las principales causas de frustración
 de los programadores. Durante el desarrollo de Godot (y previas
-iteraciones del motor), varias tecnicas y filosoficas para el
-desarrollo UI fueron puestas en practica, como un modo inmediato,
-contenedores, anclas, scripting, etc. Esto fue siempre hecho con el
-objetivo principal de reducir el estres que los programadores tienen
-que enfrentar cuando crear interfaces de usuario
+iteraciones del motor) se pusieron en práctiva varias técnicas y filosofías 
+para el desarrollo UI, como un modo inmediato, contenedores, anclas, scripting, etc.
+Esto fue hecho con el objetivo principal de reducir el estrés que los programadores
+tienen que enfrentar cuando crean interfaces de usuario.
 
-Al final, el sistema UI resultante en Godot es una eficiente solucion
+Al final, el sistema UI resultante en Godot es una solución eficiente
 para este problema, y funciona mezclando juntos algunos enfoques.
-Mientras que la curva de aprendizaje es un poco mas pronunciada que
+Mientras que la curva de aprendizaje es un poco más pronunciada que
 en otros conjuntos de herramientas, los desarrolladores pueden crear
 interfaces de usuario complejas en muy poco tiempo, al compartir las
 mismas herramientas con diseñadores y animadores.
@@ -38,15 +37,15 @@ mismas herramientas con diseñadores y animadores.
 Control
 ~~~~~~~
 
-El nodo basico para elementos UI es :ref:`Control <class_Control>`
+El nodo básico para elementos UI es :ref:`Control <class_Control>`
 (a veces llamados "Widget" o "Caja" en otras herramientas). Cada
 nodo que provee funcionalidad de interfaz de usuario desciende de
 el.
 
-Cuando los controles son puestos en el arbol de escena como hijos
-de otro control, sus coordenadas (posicion, tamaño) son siempre
+Cuando los controles se ponen en el árbol de escena como hijos
+de otro control, sus coordenadas (posición, tamaño) son siempre
 relativas a sus padres. Esto aporta la base para editar interfaces
-de usuario complejas rapidamente y de manera visual.
+de usuario complejas rápido y de manera visual.
 
 Entrada y dibujado
 ~~~~~~~~~~~~~~~~~~
@@ -61,38 +60,38 @@ Los eventos de movimiento de mouse son recibidos por el control que
 esta directamente debajo del puntero de mouse. Cuando un control
 recibe el evento de que se presiono un boton de mouse, todas los
 eventos siguientes de movimiento son recibidos por el control
-presionado hasta que el boton se suelta, aun si el puntero se mueve
-fuera de los limites del control.
+presionado hasta que el boton se suelta, aún si el puntero se mueve
+fuera de los límites del control.
 
 Como cualquier clase que hereda de :ref:`CanvasItem <class_CanvasItem>`
 (Control lo hace), una llamada de retorno :ref:`CanvasItem._draw() <class_CanvasItem__draw>`
-sera recibida al principio y cada vez que el control deba ser
+se recibe al principio y cada vez que el control deba ser
 redibujado (los programadores deben llamar :ref:`CanvasItem.update() <class_CanvasItem_update>`
 para poner en cola el CanvasItem para redibujar). Si el control no
-esta visible (otra propiedad CanvasItem), el control no recibe
+está visible (otra propiedad CanvasItem), el control no recibe
 ninguna entrada.
 
-En general sin embargo, el programador no necesita lidiar con el
+Sin embargo, el programador no necesita lidiar con el
 dibujado y los eventos de entrada directamente cuando se construyen
-UIs, (es mas util cuando se crean controles personalizados). En su
-lugar, los controles emiten diferente tipos de señales con informacion
-contextual para cuando la accion ocurre. Por ejemplo, una :ref:`Button <class_Button>`
-emite una señal "pressed", una :ref:`Slider <class_Slider>`emitiraun
+UIs, (es mas útil cuando se crean controles personalizados). En su
+lugar, los controles emiten diferente tipos de señales con información
+contextual para cuando ocurre la acción. Por ejemplo, una :ref:`Button <class_Button>`
+emite una señal "pressed", una :ref:`Slider <class_Slider>`emitirá un
 "value_changed" cuando se arrastra, etc.
 
 Mini tutorial de controles personalizados
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Antes de ir mas profundo, crear un control personalizado sera una
-buena forma de entender como funcionan los controles, ya que no son
-tan complejos como pueden parecer.
+Antes de ir mas profundo, se creará un control personalizado 
+para entender cómo funcionan los controles, ya que no son
+tan complejos como parecen.
 
-Adicionalmente, aunque Godot viene con docenas de controles para
-diferentes propositos, sucede a menudo que es simplemente mas
-sencillo obtener la funcionalidad especidica creando uno nuevo.
+Aunque Godot viene con docenas de controles para
+diferentes propósitos, a menudo sucede que es simplemente más
+sencillo obtener la funcionalidad específica creando uno nuevo.
 
 Para comenzar, crea una escena con un solo nodo. El nodo es del tipo
-"Control" y tiene cierta area de la pantalla en el editor 2D, como
+"Control" y tiene cierta área de la pantalla en el editor 2D, como
 esto:
 
 .. image:: /img/singlecontrol.png
@@ -119,9 +118,9 @@ Agregale un script a ese nodo, con el siguiente codigo:
             pulsado=true
             update()
 
-Luego corre la escena. Cuando el rectangulo es clickeado/pulsado, ira
+Luego corre la escena. Cuando el rectángulo es clickeado/pulsado, cambiará
 de azul a rojo. Esa sinergia entre los eventos y el dibujo es
-basicamente como funcionan internamente la mayoria de los controles.
+básicamente como funcionan internamente la mayoria de los controles.
 
 .. image:: /img/ctrl_normal.png
 
@@ -131,57 +130,57 @@ Complejidad de la UI
 ~~~~~~~~~~~~~
 
 Como mencionamos antes, Godot incluye docenas de controles listos para
-usarse en una interface. Esos controles estan divididos en dos
-categorias. La primera es un pequeño grupo de controles que funcionan
+usarse en una interfaz. Esos controles estan divididos en dos
+categorías. La primera es un pequeño grupo de controles que funcionan
 bien para crear la mayoria de las interfaces de usuario. La segunda
 (y la mayoria de los controles son de este tipo) estan destinadas a
-interfases de usuario complejas y el skinning(aplicar un forro) a
-traves de estilos. Una descripcion es presentada a continuacion para
-ayudar a entender cual debe ser usada en que caso.
+interfaces de usuario complejas y el skinning(aplicar un forro) a
+traves de estilos. A continuación se presentará una descripción para
+ayudar a entender cuál debe ser usada en qué caso.
 
 Controles UI simplificados
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Este conjunto de controles es suficiente para la mayoria de los
-juegis, donde interacciones complejas o formas de presentar la
-informacion no son necesarios. Pueden ser "skineados" facilmente
+Este conjunto de controles es suficiente para la mayoría de los
+juegos, donde interacciones complejas o formas de presentar la
+información no son necesarias. Pueden ser "skineados" fácilmente
 con texturas regulares.
 
 -  :ref:`Label <class_Label>`: Nodo usado para mostrar texto
 -  :ref:`TextureFrame <class_TextureFrame>`: Muestra una sola
-   textura, que puede ser escalada o mantenia fija.
--  :ref:`TextureButton <class_TextureButton>`: Muestra una
-   simple boton con textura para los estados como pressed, hover,
+   textura, que puede ser escalada o mantenida fija.
+-  :ref:`TextureButton <class_TextureButton>`: Muestra un
+   simple botón con textura para los estados como pressed, hover,
    disabled, etc.
 -  :ref:`TextureProgress <class_TextureProgress>`: Muestra una
    sola barra de progreso con textura.
 
-Adicionalmente, el reposicionado de controles es mas eficientemente
+Adicionalmente, el reposicionado de controles es más eficiente
 hecho con anclas en este caso (ve el tutorial :ref:`doc_size_and_anchors`
-para mas informacion)
+para mas información)
 
-De cualqueir forma, sucedera seguido que aun para juegos simples,
-comportamientos de UI mas complejos son requeridos. Un ejemplo de
-esto una lista de elemenots con scrolling (desplazamiento) (por ejemplo
+De cualquier forma, sucederá seguido que, aún para juegos simples,
+se requieren comportamientos de UI más complejos. Un ejemplo de
+esto una lista de elementot con scrolling (desplazamiento) (por ejemplo
 para una tabla de puntuaciones altas), la cual necesita un
 :ref:`ScrollContainer <class_ScrollContainer>` y un :ref:`VBoxContainer <class_VBoxContainer>`.
 Este tipo de controles mas avanzados puede ser mezclado con los
-regulares sin problema (son todos controles de todas formas).
+regulares sin problema (todos son controles de todas formas).
 
 Controles de UI complejos
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-El resto de los controles (y hay docenas de ellos!) estan destinados
-para otro tipo de escenario, los mas comunes:
+El resto de los controles (¡y hay docenas de ellos!) estan destinados
+para otro tipo de escenario, los más comunes:
 
 -  Juegos que requieren UIs complejas, como RPGs (juegos de rol),
    MMOs (juegos online masivos), strategy (estrategia), sims
-   (simulacion), etc.
+   (simulación), etc.
 -  Crear herramientas de desarrollo personalizadas para acelerar
-   la creacion de contenido.
+   la creación de contenido.
 -  Crear Plugins de Editor de Godot, para extender la funcionalidad
    del motor.
 
-Reposicionar controles para este tipo de interfaces es mas comunmente
-hecho con contenedores (ve el tutorial :ref:`doc_size_and_anchors` para
-mas informacion).
+Es más común reposicionar controles con contenedores para este tipo
+de casos (ve el tutorial :ref:`doc_size_and_anchors` para
+más información).
